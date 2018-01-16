@@ -6,6 +6,8 @@ public class Order {
 
     private final EOrderType orderType;
 
+    private final Client owner;
+
     private final Item item;
 
     private int itemCount;
@@ -13,9 +15,12 @@ public class Order {
     private final double itemCost;
 
     public Order(final EOrderType orderType,
-                 final Item item, final int itemCount,
+                 final Client owner,
+                 final Item item,
+                 final int itemCount,
                  final double itemCost) {
         this.orderType = orderType;
+        this.owner = owner;
         this.item = item;
         this.itemCount = itemCount;
         this.itemCost = itemCost;
@@ -46,4 +51,7 @@ public class Order {
         this.itemCount = itemCount;
     }
 
+    public Client getOwner() {
+        return owner;
+    }
 }
