@@ -8,7 +8,7 @@ public class Contract {
 
     private final double totalAmount;
 
-    public Contract(final Client[] participants, final Order order, final double totalAmount) {
+    public Contract(final Client[] participants, final Order order) {
         this.participants = participants;
         this.order = order;
         this.totalAmount = order.getItemCost() * order.getItemCount();
