@@ -14,6 +14,8 @@ public class Order {
 
     private final double itemCost;
 
+    private boolean executed;
+
     public Order(final EOrderType orderType,
                  final Client owner,
                  final Item item,
@@ -54,4 +56,13 @@ public class Order {
     public Client getOwner() {
         return owner;
     }
+
+    public boolean isExecuted() {
+        return executed;
+    }
+
+    public void setExecuted(boolean executed) {
+        this.executed = executed;
+    }
+
 }
