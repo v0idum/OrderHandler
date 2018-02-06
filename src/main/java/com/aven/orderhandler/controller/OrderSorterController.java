@@ -7,29 +7,12 @@ import java.util.ArrayList;
 
 public class OrderSorterController {
 
-    private final ArrayList<Order> purchaseOrders;
-
-    private final ArrayList<Order> offerOrders;
-
-    public OrderSorterController() {
-        this.purchaseOrders = new ArrayList<>();
-        this.offerOrders = new ArrayList<>();
-    }
-
-    public void sortOrder(final Order order) {
+    public void sortOrder(final Order order, final ArrayList<Order> purchases, final ArrayList<Order> offers) {
         if (order.getOrderType() == EOrderType.PURCHASE) {
-            purchaseOrders.add(order);
+            purchases.add(order);
         } else {
-            offerOrders.add(order);
+            offers.add(order);
         }
-    }
-
-    public ArrayList<Order> getPurchaseOrders() {
-        return purchaseOrders;
-    }
-
-    public ArrayList<Order> getOfferOrders() {
-        return offerOrders;
     }
 
 }
