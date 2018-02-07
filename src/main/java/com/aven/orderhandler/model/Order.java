@@ -1,6 +1,8 @@
 package com.aven.orderhandler.model;
 
-public class Order {
+import java.io.Serializable;
+
+public class Order implements Serializable {
 
     private final String name;
 
