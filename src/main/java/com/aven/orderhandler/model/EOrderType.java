@@ -1,6 +1,8 @@
 package com.aven.orderhandler.model;
 
-public enum EOrderType {
+import java.io.Serializable;
+
+public enum EOrderType implements Serializable {
 
     OFFER, PURCHASE
 

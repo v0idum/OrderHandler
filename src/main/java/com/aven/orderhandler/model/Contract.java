@@ -1,6 +1,8 @@
 package com.aven.orderhandler.model;
 
-public class Contract {
+import java.io.Serializable;
+
+public class Contract implements Serializable {
 
     private final Client[] participants;
 
