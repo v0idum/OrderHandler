@@ -28,7 +28,7 @@ public class Order implements Serializable {
         this.item = item;
         this.itemCount = itemCount;
         this.itemCost = itemCost;
-        this.name = orderType.toString() + " " + item.getName() + " " + itemCount;
+        this.name = orderType.toString() + ", " + item.getName() + ", " + itemCount + ", " + itemCost;
     }
 
     public String getName() {
@@ -65,6 +65,11 @@ public class Order implements Serializable {
 
     public void setExecuted(boolean executed) {
         this.executed = executed;
+    }
+
+    @Override
+    public String toString() {
+        return getName();
     }
 
 }
