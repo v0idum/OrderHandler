@@ -1,29 +1,35 @@
 package com.aven.orderhandler.model;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.net.Socket;
 
-public class Client {
+public class Client implements Serializable {
 
     private final String name;
 
-    private final ArrayList<Order> orders;
+    private boolean isConnected = false;
 
     public Client(final String name) {
         this.name = name;
-        this.orders = new ArrayList<>();
     }
 
-    public void sendOrder(final EOrderType orderType, final Item item,
-                          final int itemCount, final double itemCost) {
-        //TODO
+    public void sendOrder(final Order order) {
+        while (!isConnected) {
+            try {
+                Socket socket = new Socket("localHost", 9000);
+                isConnected = true;
+                ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
+                outputStream.writeObject(order);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public String getName() {
         return name;
-    }
-
-    public ArrayList<Order> getOrders() {
-        return orders;
     }
 
 }
