@@ -16,8 +16,6 @@ public class Order implements Serializable {
 
     private final double itemCost;
 
-    private boolean executed;
-
     public Order(final EOrderType orderType,
                  final Client owner,
                  final Item item,
@@ -28,7 +26,7 @@ public class Order implements Serializable {
         this.item = item;
         this.itemCount = itemCount;
         this.itemCost = itemCost;
-        this.name = orderType.toString() + ", " + item.getName() + ", " + itemCount + ", " + itemCost;
+        this.name = orderType + ", " + item.getName() + ", " + itemCount + ", " + itemCost;
     }
 
     public String getName() {
@@ -57,14 +55,6 @@ public class Order implements Serializable {
 
     public Client getOwner() {
         return owner;
-    }
-
-    public boolean isExecuted() {
-        return executed;
-    }
-
-    public void setExecuted(boolean executed) {
-        this.executed = executed;
     }
 
     @Override
