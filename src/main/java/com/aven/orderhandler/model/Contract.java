@@ -28,4 +28,10 @@ public class Contract implements Serializable {
         return totalAmount;
     }
 
+    @Override
+    public String toString() {
+        return order + ", Participants: " + participants[0].getName() + ", "
+                + participants[1].getName() + "\n" + ", totalAmount: " + totalAmount;
+    }
+
 }
